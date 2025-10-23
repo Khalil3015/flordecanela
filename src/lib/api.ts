@@ -25,22 +25,25 @@ export type QuotePayload = {
   packs: { id: string; count: number }[];
 };
 
+// ✅ URL base del backend en Render
+const API_URL = "https://flordecanela-backend.onrender.com";
+
 // Funciones API ----------------------------------------------------------
 
 export async function getCatalog(): Promise<CatalogResponse> {
-  const r = await fetch("/api/catalog");
+  const r = await fetch(`${API_URL}/api/catalog`);
   if (!r.ok) throw new Error("Error al obtener el catálogo");
   return r.json();
 }
 
 export async function getPacks(tipo?: "variado" | "salado") {
-  const r = await fetch(`/api/packs${tipo ? `?tipo=${tipo}` : ""}`);
+  const r = await fetch(`${API_URL}/api/packs${tipo ? `?tipo=${tipo}` : ""}`);
   if (!r.ok) throw new Error("Error al obtener los packs");
   return r.json();
 }
 
 export async function quote(payload: QuotePayload) {
-  const r = await fetch("/api/quote", {
+  const r = await fetch(`${API_URL}/api/quote`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -50,7 +53,8 @@ export async function quote(payload: QuotePayload) {
 }
 
 export async function getTerms() {
-  const r = await fetch("/api/terms");
+  const r = await fetch(`${API_URL}/api/terms`);
   if (!r.ok) throw new Error("Error al obtener los términos");
   return r.json();
 }
+
