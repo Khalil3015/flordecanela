@@ -15,9 +15,9 @@ export default function ItemCard({ item }: { item: Item }) {
 
   return (
     <article
-  className="relative bg-[#7b5a3e]/90 border border-[#a07456] rounded-2xl overflow-hidden shadow-sm 
-             hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
->
+      className="relative bg-[#1C1612]/90 border border-[#835a40] rounded-2xl overflow-hidden shadow-sm 
+                 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+    >
       {/* Imagen */}
       <div className="relative h-48 w-full overflow-hidden">
         <img
